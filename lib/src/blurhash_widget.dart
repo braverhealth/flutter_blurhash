@@ -214,8 +214,7 @@ class UiImage extends ImageProvider<UiImage> {
   @override
   Future<UiImage> obtainKey(ImageConfiguration configuration) => SynchronousFuture<UiImage>(this);
 
-  @override
-  ImageStreamCompleter load(UiImage key, DecoderCallback decode) => OneFrameImageStreamCompleter(_loadAsync(key));
+  ImageStreamCompleter load(UiImage key, FileDecoderCallback decode) => OneFrameImageStreamCompleter(_loadAsync(key));
 
   Future<ImageInfo> _loadAsync(UiImage key) async {
     assert(key == this);
